@@ -1,22 +1,3 @@
-// const {Client}=require('pg');
-
-
-// const client=new Client({
-//     user:"postgres",
-//     host:"localhost",
-//     database:"DemoDB",
-//     password:"1806",
-//     port:"5432",
-// });
-
-// client.connect().then(()=>{
-//     console.log("Connected to postgreSql")
-// }).catch((err)=>{
-//     console.error('Error in Database:', err)
-// })
-
-
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
@@ -60,7 +41,7 @@ app.get('/tasks', async (req, res) => {
 
 //create 
 app.post('/tasks', async (req, res) => {
-    const { title, completed = false } = req.body;  // Default completed to false
+    const { title, completed = false } = req.body;  
 
     if (!title) {
         return res.status(400).json({ error: 'Title is required' });
